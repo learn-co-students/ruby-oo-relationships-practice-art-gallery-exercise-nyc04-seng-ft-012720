@@ -42,12 +42,12 @@ An artist can, of course, have many paintings. Paintings can only be in one gall
 <!-- 
   * `Artist.total_experience`
     * Returns an `integer` that is the total years of experience of all artists -->
-
+<!-- 
   * `Artist.most_prolific`
-    * Returns an `instance` of the artist with the highest amount of paintings per year of experience.
-
+    * Returns an `instance` of the artist with the highest amount of paintings per year of experience. -->
+<!-- 
   * `Artist#create_painting`
-    * Given the arguments of `title`, `price` and `gallery`, creates a new painting belonging to that artist
+    * Given the arguments of `title`, `price` and `gallery`, creates a new painting belonging to that artist -->
 
 **PAINTING**
 <!-- 
