@@ -1,54 +1,32 @@
-class Gallery
+class Gallery 
+    @@all = []
+    attr_accessor :city
 
-  attr_reader :name, :city
-
-  @@all = []
-
-  def initialize(name, city)
-    @name = name
+    def initialize(city)
     @city = city
-    @@all << self
-  end
+    @@all << self 
+    end  
 
-  def self.all
-    @@all
-  end
-  
-  
-  def paintings
-    Painting.all.select{|painting| painting.gallery == self }
-    
-    # paintings = []
-    # Painting.all.each do |painting|
-    #   if painting.gallery == self
-    #     paintings.push(painting)
-    #   end
-    # end
-    # paintings
-  end
+    def self.all 
+      @@all 
+    end 
 
-  def artists
+    def paintings
+      Painting.all.select{|painting|painting.gallery == self}
+    end 
 
-    # get all the paintings
-    # convert those paintings into their artists
-    # filter out duplicates
+    def artists 
+      self.paintings.map{|painting|painting.artist}
+    end 
 
-    self.paintings.map{|painting| painting.artist}.uniq
-  end
+    def artist_names
+        self.paintings.map{|painting|painting.artist.name}
+    end 
 
-  def artist_names
-    # take instances of artists
-    # self.artists
+    def most_expensive_painting
+      self.paintings.max_by{|painting| painting.price}
+    end 
 
-    # turn list of artists into list of names
-    self.artists.map{|artist| artist.name}
-  end
 
-  def most_expensive_painting
-    self.paintings.max_by do |painting|
-      painting.price
-    end
-  end
-  
-  
-end
+
+end 
